@@ -1,0 +1,95 @@
+var FindProxyForURL = function(init, profiles) {
+    return function(url, host) {
+        "use strict";
+        var result = init, scheme = url.substr(0, url.indexOf(":"));
+        do {
+            result = profiles[result];
+            if (typeof result === "function") result = result(url, host, scheme);
+        } while (typeof result !== "string" || result.charCodeAt(0) === 43);
+        return result;
+    };
+}("+auto switch", {
+    "+auto switch": function(url, host, scheme) {
+        "use strict";
+        if (/^internal\.example\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)example\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)ajax\.googleapis\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)telegram\.me$/.test(host)) return "+proxy";
+        if (/(?:^|\.)t\.me$/.test(host)) return "+proxy";
+        if (/(?:^|\.)learnjulia\.blogspot\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)vzuu\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)live\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)olsvc\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)skype\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)office\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)bing\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)adnxs\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)office365\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)wallpaperswide\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)csdnimg\.cn$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)4paradigm\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)mi\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)bilibili\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)blogger\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)alicdn\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)m15okie1\.cn$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)wikipedia\.org$/.test(host)) return "+proxy";
+        if (/(?:^|\.)bit\.ly$/.test(host)) return "+proxy";
+        if (/(?:^|\.)iplc\.cloud$/.test(host)) return "+proxy";
+        if (/(?:^|\.)haobang\.me$/.test(host)) return "+proxy";
+        if (/(?:^|\.)googleusercontent\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)facebook\.net$/.test(host)) return "+proxy";
+        if (/(?:^|\.)cateyes\.blue$/.test(host)) return "+proxy";
+        if (/(?:^|\.)firebasestorage\.googleapis\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)gitbook\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)firebaseinstallations\.googleapis\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)firebaselogging\.googleapis\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)yandex\.net$/.test(host)) return "+proxy";
+        if (/(?:^|\.)taobao\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)easycounter\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)telesco\.pe$/.test(host)) return "+proxy";
+        if (/(?:^|\.)bigdongdongclub\.github\.io$/.test(host)) return "+proxy";
+        if (/(?:^|\.)telegram\.org$/.test(host)) return "+proxy";
+        if (/(?:^|\.)about\.google$/.test(host)) return "+proxy";
+        if (/(?:^|\.)buaa\.edu\.cn$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)52pojie\.cn$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)baidupcs\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)goo\.gl$/.test(host)) return "+proxy";
+        if (/(?:^|\.)misszm\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)btdb\.to$/.test(host)) return "+proxy";
+        if (/(?:^|\.)limetorrents\.io$/.test(host)) return "+proxy";
+        if (/(?:^|\.)google\.com\.sg$/.test(host)) return "+proxy";
+        if (/(?:^|\.)emoneyspace\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)fulibbs\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)play86\.xyz$/.test(host)) return "+proxy";
+        if (/(?:^|\.)bttiantangs\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)sebug\.net$/.test(host)) return "+proxy";
+        if (/(?:^|\.)zodgame\.us$/.test(host)) return "+proxy";
+        if (/(?:^|\.)tansuo233\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)csdn\.net$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)baidu\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)googlevideo\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)ytimg\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)youtube\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)ggpht\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)gstatic\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)facebook\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)analytics-diggbt$/.test(host)) return "+proxy";
+        if (/(?:^|\.)google\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)sex8\.cc$/.test(host)) return "+proxy";
+        if (/(?:^|\.)freegirlpee\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)beach\.cf$/.test(host)) return "+proxy";
+        if (/(?:^|\.)cams\.com$/.test(host)) return "+proxy";
+        if (/(?:^|\.)zhuangrj\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)archlinux\.org$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)wangchujiang\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)github\.com$/.test(host)) return "DIRECT";
+        if (/(?:^|\.)duckduckgo\.com$/.test(host)) return "+proxy";
+        return "DIRECT";
+    },
+    "+proxy": function(url, host, scheme) {
+        "use strict";
+        if (/^127\.0\.0\.1$/.test(host) || /^::1$/.test(host) || /^localhost$/.test(host)) return "DIRECT";
+        return "SOCKS5 192.168.2.136:1080; SOCKS 192.168.2.136:1080";
+    }
+});
